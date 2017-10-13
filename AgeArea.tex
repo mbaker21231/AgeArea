@@ -4,6 +4,8 @@
 \usepackage{pst-all}
 \usepackage{newicktree}
 \usepackage{graphicx}
+\usepackage{setspace}
+\usepackage[margin=1in, top=1in, bottom=1in]{geometry}
 
 \title{A Theoretical Foundation for the Age-Area Hypothesis}
 \author{\textbf{Matthew J. Baker} \\ Department of Economics \\ Hunter College and the Graduate Center, CUNY}
@@ -11,21 +13,20 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-\noindent The Age-Area Hypothesis originally advanced by Sapir (1915) is a tool sometimes used to locate the geographical area within which a linguistic stock originated. One common way of stating the hypothesis
-is that the area of origin of a linguistic stock is where the languages comprising the stock are maximally differentiated. While the hypothesis is compelling, and its predictions are often corroborated by other evidence, a cohesive theoretical structure for the Age-Area Hypothesis has never been described. This paper describes such a theoretical foundation in terms of probability, and also presents a computational algorithm for computing the relative likelihood that a linguistic stock originated in a given place.
+\noindent The Age-Area Hypothesis originally advanced by Sapir (1915) is an often-invoked tool used to locate the geographical point of origin of a linguistic stock, which closely corresponds to a group of related cultures. One common way of stating the hypothesis
+is that the area of origin of a linguistic stock is where the languages comprising the stock are maximally differentiated. While the hypothesis is compelling, and its predictions are often corroborated by other evidence, a cohesive theoretical structure for the Age-Area Hypothesis has never been described. This limits its usefulness as a scientific device for estimating probabilities, comparing hypothesis about origins, etc. This paper describes a micro-founded, probabilistic model of the Age-Area Hypothesis. The resulting model provides a natural way of describing more parsimonious outcomes, and also presents a computational algorithm for computing the relative likelihood that a linguistic stock originated in a given place. The paper concludes with discussion of applications to some open questions in comparative linguistics.
 \end{abstract}
 \newpage
 
-The age-area hypothesis - evidently first developed by Sapir (1916) in his study of certain Native American Languages - is often invoked, and often implicitly, when linguistic
-evidence is summoned in support of the original location of language stocks. Briefly stated, the hypothesis indicates that the geographic area where a language phylogeny originated
-is most likely the place where the languages are maximally differentiated.
+\doublespacing
 
-Examples of the application of this idea abound. Sapir himself used these arguments to suggest that the so-called Na-Dene linguistic grouping originated in and around the North West Coast. As another example, Atkinson and Gray (2003) have used the results to suggest that the Indo-European languages originated in Anatolia, not, as is sometimes supposed, on the steppes of Siberia. Further applications of the idea - either implicit or explicit use of the idea - are almost too numerous to mention.
+The age-area hypothesis - first developed by Sapir (1916) in his study of certain Native American Languages - is often invoked when linguistic
+evidence is summoned in support of the original location of language stocks. Answers to this question are intimately related to questions about the distribution and drift of different cultural practices, and how they have evolved over time. Indeed, given the increasing importance of such things in the economics of growth, unlocking these statements is important. 
 
-Another thing that might be said is relative to routes of migration of populations. Such accounts contain many statements to the effect that ``it is probable that'' or ``it is likely'' that population $A$ then bifurcated, and migrated to location $B$, from which point...
+Briefly stated, the hypothesis indicates that the geographic area where a language phylogeny originated
+is most likely the place where the languages are ``maximally differentiated.'' Examples of the application of this idea abound. Sapir himself used these arguments to suggest that the so-called Na-Dene linguistic grouping, which more or less coincides with Athabaskan peoples, who are spread across Canada but have also carved out an enclave in the Southwest United States, likely originated in and around the North West Coast. As another example, Atkinson and Gray (2003) have used the results to suggest that the Indo-European languages originated in Anatolia, not, as is sometimes supposed, on the steppes of Siberia. Further applications of the idea - either implicit or explicit use of the idea - are almost too numerous to mention.\footnote{Ruhlen (1996) provides a very readable overview of these and other applications.}
 
-What is the existing theoretical basis for the age-area hypothesis? Well, the sister hypothesis in Anthropology - not quite the same idea. In population genetics, it is well known that
-the point of maximal genetic diversity of populations is closest their origin. This is because migrants only take a subset of their genes, and cannot have any bearing on the situation
+Unfortunately, there are no existing theoretical basis for the age-area hypothesis, beyond vague hints that it somehow parallels similar concepts in population biology. In population genetics, it is well known that the point of maximal genetic diversity of populations is closest their origin. This is because migrants only take a subset of their genes, and cannot have any bearing on the situation
 in linguistics.
 
 \section{Problem Description and Motivation}
@@ -68,27 +69,27 @@ Accordingly, let's make the following assumptions:
 
 One good thing about this model is that it can be easily concentrated. That is, the parameters of any exponential distribution can be concentrated out of the likelihood, and this makes the workings of the model clear in that one can easily see how and why it would posit that the first sequence of events on figure \ref{fig2} are more likely.
 
-To see the basic idea, let's develop a comparison of the two scenarios described in figure \ref{fig2}. The first scenario requires an initial migratory event to start after time $t_0$ from point $A$. At this point, according to the model assumptions, $A$ is dormant, and the migratory bug is transitioned to location $B$. After time $t_1$, $B$ emits the migratory bug to $C$ and is then dormant, followed by $C$'s emission and subsequent dormancy, and then $D$'s. Finally, $E$ retains the bug but never emits. 
+To see the basic idea, let's develop a comparison of the two scenarios described in figure \ref{fig2}. The first scenario requires an initial migratory event to start after time $t_0$ from point $A$. At this point, according to the model assumptions, $A$ is dormant, and the migratory bug is transitioned to location $B$. After time $t_1$, $B$ emits the migratory bug to $C$ and is then dormant, followed by $C$'s emission and subsequent dormancy, and then $D$'s. Finally, $E$ retains the bug but never emits.
 
 This is the only migratory episode needed to explain the positioning of the groups in the tree, and given the assumption that discharges are exponential, suppose our events are described by the distribution $\textrm{Exp}(\lambda)$. Then, we have the likelihood of point $A$ being the point of origin as:
 \begin{equation} \label{e1}
 P_A = \lambda e^{-\lambda t_0}\lambda e^{-\lambda t_1}\lambda e^{-\lambda t_2}\lambda e^{-\lambda t_3}e^{-\lambda t_8}
 \end{equation}
-or 
+or
 \begin{equation} \label{e2}
 P_A = \lambda^4 e^{-\lambda (t_0+t_1+t_2+t_3+t_8)}
 \end{equation}
 
 There are a couple of points of interest for equation (\ref{e1}). First, since only one migratory path is needed to explain the events, only one
-exponential parameter is needed for the whole process. Also, since a migratory event after $t_8$ is never observed, we have $1-F(t_8,\lambda) = e^{-\lambda t_8}$; there is only one such ``operational branch'' when our observation period ends. 
+exponential parameter is needed for the whole process. Also, since a migratory event after $t_8$ is never observed, we have $1-F(t_8,\lambda) = e^{-\lambda t_8}$; there is only one such ``operational branch'' when our observation period ends.
 
 Since the migration parameter is not of as great of interest as the probability, we can take the log of equation $\ref{e2}$ and maximize the result with respect to $\lambda$, and substitute the result back in to concentrated likelihood, giving us a closed-form expression for the probability that $A$ is the point of origin:
 \begin{equation} \label{e2}
 P_A = \frac{4^4e^{-4}}{(t_0+t_1+t_2+t_3+t_8)^4}
 \end{equation}
-Of course, this is not all that meaningful without a point of comparison. So, by way of comparison, according to this model, what is the likelihood that the point of origin is $C$? 
+Of course, this is not all that meaningful without a point of comparison. So, by way of comparison, according to this model, what is the likelihood that the point of origin is $C$?
 
-In this case, the process begins with a migration after $t_0$ from $C$ to $A$. Subsequently, no additional migrations occur from $A$, so $A$ remains active. Then, after time $t_1$ a second migratory event arises leading from $C$ to $B$, after which nothing further occurs on this branch. Then, a migratory event leads from $C$ to $D$ over time $t_2$, and then from $D$ to $E$ over time $t_3$, at which point nothing more happens. 
+In this case, the process begins with a migration after $t_0$ from $C$ to $A$. Subsequently, no additional migrations occur from $A$, so $A$ remains active. Then, after time $t_1$ a second migratory event arises leading from $C$ to $B$, after which nothing further occurs on this branch. Then, a migratory event leads from $C$ to $D$ over time $t_2$, and then from $D$ to $E$ over time $t_3$, at which point nothing more happens.
 
 The key thing about this explanation is that there are three separate migratory events needed to explain things, so we need three exponential parameters in the model. Another key thing is that we have more branches that are ``alive'' at the end of the process. These might suggest intuitively that this explanation is less likely than the previous, and this is indeed the case under the model. Forming the likelihood in the
 same way as we did above, we have:
@@ -100,21 +101,25 @@ So, here we have a three-parameter model, which is how the increased complexity 
 \frac{2^2e^{-4}}{(t_0+t_4)(t_1+t_5)(t_2+t_3+t_5)}
 \end{equation}
 
- We can form the ratio of this and the previous expression and see which tree is more likely under which configuration of the parameters. The intuition behind the explanation can be written as: 
+ We can form the ratio of this and the previous expression and see which tree is more likely under which configuration of the parameters. The intuition behind the explanation can be written as:
  \begin{equation*}
  LR = 4\left({1-\frac{t_0}{T}}\right)4^2\left(1-\frac{t_o+t_1}{T}\right)^2
  \end{equation*}
-So we see that unless the branches $t_0$ and $t_1$ constitute a (very) large span of the tree, our model claims that $A$ is the most likely place of origin. 
+So we see that unless the branches $t_0$ and $t_1$ constitute a (very) large span of the tree, our model claims that $A$ is the most likely place of origin.
+
+\section{Migratory Episodes - Theoretical Foundations}
+
+How and why might such incidences occur? We begin by sticking with the idea that these episodes are rare events. Therefore, if we need fewer than one, w
 
 \section{An algorithm}
 
-As is often the case when dealing with estimation over trees, it behooves one to consider an algorithm that works backwards from the branches to the base. The algorithm presented here is essentially a pruning algorithm like Felsenstein's with a hint of dynamic programming. The dynamic programming aspect introduces a sort of continuation maximum likelihood into the tree. 
+As is often the case when dealing with estimation over trees, it behooves one to consider an algorithm that works backwards from the branches to the base. The algorithm presented here is essentially a pruning algorithm like Felsenstein's with a hint of dynamic programming. The dynamic programming aspect introduces a sort of continuation maximum likelihood into the tree.
 
-The algorithm works as follows. At termination, the result is a concentrated log-likelihood of each location being the point of origin.  The following is an illustration showing how the algorithm works on the example given above. 
+The algorithm works as follows. At termination, the result is a concentrated log-likelihood of each location being the point of origin.  The following is an illustration showing how the algorithm works on the example given above.
 
 \begin{enumerate}
 \item[0.] Initialization: a ``active'' vector of zeros $A=[0,0,0,0,0]$, a vector of exponential parameters that start with zero, $E=[0,0,0,0,0]$, and a continuation likelihood $L=[-t_4,-t_5,-t_6,-t_7,-t_8]$
-\item  Select an interior node and pick out its branches. 
+\item  Select an interior node and pick out its branches.
 \item  Poo
 \end{enumerate}
 
