@@ -1,4 +1,3 @@
-%
 \documentclass[11pt]{article}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -16,7 +15,6 @@
 \author{\textbf{Matthew J. Baker} \\ Department of Economics \\ Hunter College and the Graduate Center, CUNY}
 
 \begin{document}
-
 \maketitle
 \begin{abstract}
 \noindent The impact of past mass migrations is still felt today. One tool commonly used in theorizing about the nature and origins of mass migrations is the so-called Age-Area Hypothesis, originally advanced by Sapir (1915). The age-area hypothesis traces the origins of linguistic stocks, which are closely related to cultural and genetic similarities. One common way of stating the hypothesis
