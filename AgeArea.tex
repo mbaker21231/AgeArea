@@ -5,8 +5,13 @@
 \usepackage{pst-all}
 \usepackage{newicktree}
 \usepackage{graphicx}
+<<<<<<< HEAD
 \usepackage[left=1.4in,right=1.4in,top=1in,bottom=1in,includeheadfoot]{geometry}
 \usepackage{setspace}
+=======
+\usepackage{setspace}
+\usepackage[margin=1in, top=1in, bottom=1in]{geometry}
+>>>>>>> d7c471fec99d1f7020ad82b0b0c8ed707497eb93
 
 \frenchspacing
 \linespread{1.25}
@@ -19,6 +24,7 @@
 
 \maketitle
 \begin{abstract}
+<<<<<<< HEAD
 \noindent The impact of past mass migrations is still felt today. One tool commonly used in theorizing about the nature and origins of mass migrations is the so-called Age-Area Hypothesis, originally advanced by Sapir (1915). The age-area hypothesis traces the origins of linguistic stocks, which are closely related to cultural and genetic similarities. One common way of stating the hypothesis
 is that the area of origin of a linguistic stock is where the languages comprising the stock are most different. While the hypothesis is compelling, and its predictions are often corroborated by other evidence, a cohesive theoretical structure for the Age-Area Hypothesis has never been described. This paper describes such a theoretical foundation in terms of probability, and also presents a computational algorithm for computing the relative likelihood of historical locations and migratory paths.
 \end{abstract}
@@ -28,14 +34,29 @@ The age-area hypothesis - evidently first developed and applied by Sapir (1916) 
 evidence is martialled in support of hypotheses about where different sorts of cultures originated, and how they came to be located where they are today. Briefly stated, the hypothesis indicates that the geographic area where a language phylogeny originated is most likely the place where the languages are maximally differentiated.
 
 While the question may some of academic interest only, a wide variety of recent economic literature highlights the importance of understanding how we arrived at the current cultural mix around the globe. Coincident with this understanding is the realization that understanding where different cultures came from, and how they interacted in the past, is also of paramount importance.
+=======
+\noindent The Age-Area Hypothesis originally advanced by Sapir (1915) is an often-invoked tool used to locate the geographical point of origin of a linguistic stock, which closely corresponds to a group of related cultures. One common way of stating the hypothesis
+is that the area of origin of a linguistic stock is where the languages comprising the stock are maximally differentiated. While the hypothesis is compelling, and its predictions are often corroborated by other evidence, a cohesive theoretical structure for the Age-Area Hypothesis has never been described. This limits its usefulness as a scientific device for estimating probabilities, comparing hypothesis about origins, etc. This paper describes a micro-founded, probabilistic model of the Age-Area Hypothesis. The resulting model provides a natural way of describing more parsimonious outcomes, and also presents a computational algorithm for computing the relative likelihood that a linguistic stock originated in a given place. The paper concludes with discussion of applications to some open questions in comparative linguistics.
+\end{abstract}
+\newpage
 
-Examples of the application of this idea abound. Sapir himself used these arguments to suggest that the so-called Na-Dene linguistic grouping originated in and around the North West Coast. As another example, Atkinson and Gray (2003) have used the results to suggest that the Indo-European languages originated in Anatolia, not, as is sometimes supposed, on the steppes of Siberia. Further applications of the idea - either implicit or explicit use of the idea - are almost too numerous to mention.
+\doublespacing
+>>>>>>> d7c471fec99d1f7020ad82b0b0c8ed707497eb93
 
-Another thing that might be said is relative to routes of migration of populations. Such accounts contain many statements to the effect that ``it is probable that'' or ``it is likely'' that population $A$ then bifurcated, and migrated to location $B$, from which point...
+The age-area hypothesis - first developed by Sapir (1916) in his study of certain Native American Languages - is often invoked when linguistic
+evidence is summoned in support of the original location of language stocks. Answers to this question are intimately related to questions about the distribution and drift of different cultural practices, and how they have evolved over time. Indeed, given the increasing importance of such things in the economics of growth, unlocking these statements is important. 
 
+Briefly stated, the hypothesis indicates that the geographic area where a language phylogeny originated
+is most likely the place where the languages are ``maximally differentiated.'' Examples of the application of this idea abound. Sapir himself used these arguments to suggest that the so-called Na-Dene linguistic grouping, which more or less coincides with Athabaskan peoples, who are spread across Canada but have also carved out an enclave in the Southwest United States, likely originated in and around the North West Coast. As another example, Atkinson and Gray (2003) have used the results to suggest that the Indo-European languages originated in Anatolia, not, as is sometimes supposed, on the steppes of Siberia. Further applications of the idea - either implicit or explicit use of the idea - are almost too numerous to mention.\footnote{Ruhlen (1996) provides a very readable overview of these and other applications.}
+
+<<<<<<< HEAD
 What is the existing theoretical basis for the age-area hypothesis? Well, the sister hypothesis in Anthropology - not quite the same idea. In population genetics, it is well known that
 the point of maximal genetic diversity of populations is closest their origin. This is because migrants only take a subset of their genes, and cannot have any bearing on the situation
 in linguistics. Moreover, migration is a complicated subject - can one add to the age-area hypothesis a plausible model of how and why migrations occur?
+=======
+Unfortunately, there are no existing theoretical basis for the age-area hypothesis, beyond vague hints that it somehow parallels similar concepts in population biology. In population genetics, it is well known that the point of maximal genetic diversity of populations is closest their origin. This is because migrants only take a subset of their genes, and cannot have any bearing on the situation
+in linguistics.
+>>>>>>> d7c471fec99d1f7020ad82b0b0c8ed707497eb93
 
 \section{Problem Description and Motivation}
 
@@ -113,6 +134,13 @@ So, here we have a three-parameter model, which is how the increased complexity 
  LR = 4\left({1-\frac{t_0}{T}}\right)4^2\left(1-\frac{t_o+t_1}{T}\right)^2
  \end{equation*}
 So we see that unless the branches $t_0$ and $t_1$ constitute a (very) large span of the tree, our model claims that $A$ is the most likely place of origin.
+<<<<<<< HEAD
+=======
+
+\section{Migratory Episodes - Theoretical Foundations}
+
+How and why might such incidences occur? We begin by sticking with the idea that these episodes are rare events. Therefore, if we need fewer than one, w
+>>>>>>> d7c471fec99d1f7020ad82b0b0c8ed707497eb93
 
 \section{An algorithm}
 
